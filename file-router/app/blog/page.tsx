@@ -4,9 +4,13 @@ function sleep() {
 
 const blog = async () => {
   await sleep();
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    cache: "no-store",
+  });
+  console.log(await res.json());
   return (
     <div>
-      <h1>blog</h1>
+      <h1>blog {new Date().toLocaleTimeString()}</h1>
     </div>
   );
 };
